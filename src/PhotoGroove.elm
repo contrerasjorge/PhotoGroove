@@ -115,24 +115,20 @@ initialModel =
     }
 
 
-photoArray : Array Photo
-photoArray =
-    Array.fromList initialModel.photos
 
-
-getPhotoUrl : Int -> String
-getPhotoUrl index =
-    case Array.get index photoArray of
-        Just photo ->
-            photo.url
-
-        Nothing ->
-            ""
-
-
-randomPhotoPicker : Random.Generator Int
-randomPhotoPicker =
-    Random.int 0 (Array.length photoArray - 1)
+--photoArray : Array Photo
+--photoArray =
+--Array.fromList initialModel.photos
+--getPhotoUrl : Int -> String
+--getPhotoUrl index =
+--case Array.get index photoArray of
+--Just photo ->
+--photo.url
+--Nothing ->
+--""
+--randomPhotoPicker : Random.Generator Int
+--randomPhotoPicker =
+--Random.int 0 (Array.length photoArray - 1)
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -204,7 +200,7 @@ initialCmd =
         }
 
 
-main : Program Never Model Msg
+main : Program () Model Msg
 main =
     Browser.element
         { init = \_ -> ( initialModel, initialCmd )
